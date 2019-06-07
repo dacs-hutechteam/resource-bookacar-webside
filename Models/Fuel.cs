@@ -1,30 +1,29 @@
-namespace BookCarProject.Models
+﻿namespace BookCarProject.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class BookCar
+    public partial class Fuel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public BookCar()
+        public Fuel()
         {
-            BookCarDetails = new HashSet<BookCarDetail>();
+            CarProducts = new HashSet<CarProduct>();
         }
 
         [Key]
-        public int BookCarsId { get; set; }
+        public int FuelsId { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime DateBookCar { get; set; }
-
-        public int? UserCustomersId { get; set; }
+        [Required]
+        [StringLength(50)]
+        [DisplayName("Nhiên liệu")]
+        public string NameFuel { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BookCarDetail> BookCarDetails { get; set; }
-
-        public virtual UserCustomer UserCustomer { get; set; }
+        public virtual ICollection<CarProduct> CarProducts { get; set; }
     }
 }

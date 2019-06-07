@@ -87,6 +87,8 @@
     <Reference Include="System.Data.Entity.Design" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -176,19 +178,26 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CarCategoriesController.cs" />
+    <Compile Include="Controllers\CarProductsController.cs" />
+    <Compile Include="Controllers\FuelsController.cs" />
+    <Compile Include="Controllers\GearBoxesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="DAO\dbBookCarContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BookCar.cs" />
     <Compile Include="Models\BookCarDetail.cs" />
-    <Compile Include="Models\CategoryCar.cs" />
+    <Compile Include="Models\CarCategory.cs" />
+    <Compile Include="Models\CarProduct.cs" />
+    <Compile Include="Models\DbContextBookCar.cs" />
+    <Compile Include="Models\Fuel.cs" />
+    <Compile Include="Models\GearBox.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\ProductCar.cs" />
+    <Compile Include="Models\UserCustomer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -288,10 +297,31 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\CarCategories\Create.cshtml" />
+    <Content Include="Views\CarCategories\Delete.cshtml" />
+    <Content Include="Views\CarCategories\Details.cshtml" />
+    <Content Include="Views\CarCategories\Edit.cshtml" />
+    <Content Include="Views\CarCategories\Index.cshtml" />
+    <Content Include="Views\Fuels\Create.cshtml" />
+    <Content Include="Views\Fuels\Delete.cshtml" />
+    <Content Include="Views\Fuels\Details.cshtml" />
+    <Content Include="Views\Fuels\Edit.cshtml" />
+    <Content Include="Views\Fuels\Index.cshtml" />
+    <Content Include="Views\GearBoxes\Create.cshtml" />
+    <Content Include="Views\GearBoxes\Delete.cshtml" />
+    <Content Include="Views\GearBoxes\Details.cshtml" />
+    <Content Include="Views\GearBoxes\Edit.cshtml" />
+    <Content Include="Views\GearBoxes\Index.cshtml" />
+    <Content Include="Views\CarProducts\Create.cshtml" />
+    <Content Include="Views\CarProducts\Delete.cshtml" />
+    <Content Include="Views\CarProducts\Details.cshtml" />
+    <Content Include="Views\CarProducts\Edit.cshtml" />
+    <Content Include="Views\CarProducts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="ImageUpload\" />
+    <Folder Include="ResourceTemplate\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
