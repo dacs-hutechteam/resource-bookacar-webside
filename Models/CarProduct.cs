@@ -36,6 +36,9 @@
         [StringLength(128)]
         public string ImageBack { get; set; }
 
+        [DisplayName("Thông tin")]
+        public string Info { get; set; }
+
         [StringLength(50)]
         public string Keyword { get; set; }
 

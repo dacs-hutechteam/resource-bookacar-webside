@@ -20,7 +20,7 @@
             @Html.DisplayNameFor(model => model.RentCost)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CarProductStatus)
+            Trạng thái
         </th>
         <th class="text-right">Công cụ</th>
     </tr>
@@ -38,7 +38,16 @@
                 @Html.DisplayFor(modelItem => item.RentCost)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CarProductStatus)
+                @{
+                    if (item.CarProductStatus)
+                    {
+                        @Html.Raw("Còn họat động")
+                    }
+                    else
+                    {
+                        @Html.Raw("Ngừng hoạt động")
+                    }
+                }
             </td>
             <td class="text-right">
                 @Html.ActionLink("Edit", "Edit", new { id = item.CarProductsId }) |

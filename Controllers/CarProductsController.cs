@@ -1,6 +1,10 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using BookCarProject.Models;
 
@@ -46,10 +50,33 @@ namespace BookCarProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CarProductsId,ModelCar,CarColor,NumberOfSeats,ImageFont,ImageBack,Keyword,NumberOfCars,ActionProduct,RentCost,CarProductStatus,CarCategoryId,FuelsId,GearBoxsId")] CarProduct carProduct)
+        public ActionResult Create([Bind(Include = "CarProductsId,ModelCar,CarColor,NumberOfSeats,ImageFont,ImageBack,Info,Keyword,NumberOfCars,ActionProduct,RentCost,CarProductStatus,CarCategoryId,FuelsId,GearBoxsId")] CarProduct carProduct)
         {
             if (ModelState.IsValid)
             {
+                //Lấy đối tượng file
+                var f = Request.Files["hinhanh"];
+                var f2 = Request.Files["hinhanh1"];
+                //Kiểm tra xem người dùng có chọn upload hay không
+                if (f != null && f.ContentLength > 0)
+                {
+                    //Lấy đường dẫn
+                    var path = Server.MapPath("~/ImageUpload/" + f.FileName);
+                    //Upload file lên server
+                    f.SaveAs(path);
+                    //Gán url của hình ảnh vào giá trị của thumnail
+                    carProduct.ImageFont = "/ImageUpload/" + f.FileName;
+                }
+                if (f2 != null && f2.ContentLength > 0)
+                {
+                    //Lấy đường dẫn
+                    var path = Server.MapPath("~/ImageUpload/" + f2.FileName);
+                    //Upload file lên server
+                    f2.SaveAs(path);
+                    //Gán url của hình ảnh vào giá trị của thumnail
+                    carProduct.ImageBack = "/ImageUpload/" + f2.FileName;
+                }
+
                 db.CarProducts.Add(carProduct);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -84,10 +111,22 @@ namespace BookCarProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CarProductsId,ModelCar,CarColor,NumberOfSeats,ImageFont,ImageBack,Keyword,NumberOfCars,ActionProduct,RentCost,CarProductStatus,CarCategoryId,FuelsId,GearBoxsId")] CarProduct carProduct)
+        public ActionResult Edit([Bind(Include = "CarProductsId,ModelCar,CarColor,NumberOfSeats,ImageFont,ImageBack,Info,Keyword,NumberOfCars,ActionProduct,RentCost,CarProductStatus,CarCategoryId,FuelsId,GearBoxsId")] CarProduct carProduct)
         {
             if (ModelState.IsValid)
             {
+                var f = Request.Files["hinhanh"];
+                //Kiểm tra xem người dùng có chọn upload hay không
+                if (f != null && f.ContentLength > 0)
+                {
+                    //Lấy đường dẫn
+                    var path = Server.MapPath("~/ImageUpload/" + f.FileName);
+                    //Upload file lên server
+                    f.SaveAs(path);
+                    //Gán url của hình ảnh vào giá trị của thumnail
+                    carProduct.ImageFont = "/ImageUpload/" + f.FileName;
+                }
+
                 db.Entry(carProduct).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
