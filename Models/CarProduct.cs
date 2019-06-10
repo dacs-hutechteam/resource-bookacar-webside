@@ -20,7 +20,7 @@
 
         [Required]
         [StringLength(50)]
-        [DisplayName("Model xe")]
+        [DisplayName("Tên Xe")]
         public string ModelCar { get; set; }
 
         [StringLength(20)]
@@ -31,9 +31,11 @@
         public int? NumberOfSeats { get; set; }
 
         [StringLength(128)]
+        [DisplayName("Ảnh 1")]
         public string ImageFont { get; set; }
 
         [StringLength(128)]
+        [DisplayName("Ảnh 2")]
         public string ImageBack { get; set; }
 
         [DisplayName("Thông tin")]
@@ -50,7 +52,7 @@
         [DisplayName("Chi phí thuê xe")]
         public decimal RentCost { get; set; }
 
-        [DisplayName("Còn hoạt động")]
+        [DisplayName("Trạng Thái")]
         public bool CarProductStatus { get; set; }
 
         public int? CarCategoryId { get; set; }

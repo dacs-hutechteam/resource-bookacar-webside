@@ -21,7 +21,7 @@ namespace BookCarProject.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("data source=DELL-PC;initial catalog=BookCarProjectDatabase;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework", throwIfV1Schema: false)
         {
         }
 

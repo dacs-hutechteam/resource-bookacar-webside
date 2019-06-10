@@ -81,6 +81,12 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -177,11 +183,12 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\AdministratorCP\AdministratorCPAreaRegistration.cs" />
+    <Compile Include="Areas\AdministratorCP\Controllers\CarCategoriesController.cs" />
+    <Compile Include="Areas\AdministratorCP\Controllers\CarProductsController.cs" />
+    <Compile Include="Areas\AdministratorCP\Controllers\FuelsController.cs" />
+    <Compile Include="Areas\AdministratorCP\Controllers\GearBoxesController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CarCategoriesController.cs" />
-    <Compile Include="Controllers\CarProductsController.cs" />
-    <Compile Include="Controllers\FuelsController.cs" />
-    <Compile Include="Controllers\GearBoxesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -208,6 +215,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -233,6 +241,27 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Areas\AdministratorCP\Views\web.config" />
+    <Content Include="Areas\AdministratorCP\Views\CarCategories\Create.cshtml" />
+    <Content Include="Areas\AdministratorCP\Views\CarCategories\Delete.cshtml" />
+    <Content Include="Areas\AdministratorCP\Views\CarCategories\Details.cshtml" />
+    <Content Include="Areas\AdministratorCP\Views\CarCategories\Edit.cshtml" />
+    <Content Include="Areas\AdministratorCP\Views\CarCategories\Index.cshtml" />
+    <Content Include="Areas\AdministratorCP\Views\CarProducts\Create.cshtml" />
+    <Content Include="Areas\AdministratorCP\Views\CarProducts\Delete.cshtml" />
+    <Content Include="Areas\AdministratorCP\Views\CarProducts\Details.cshtml" />
+    <Content Include="Areas\AdministratorCP\Views\CarProducts\Edit.cshtml" />
+    <Content Include="Areas\AdministratorCP\Views\CarProducts\Index.cshtml" />
+    <Content Include="Areas\AdministratorCP\Views\Fuels\Create.cshtml" />
+    <Content Include="Areas\AdministratorCP\Views\Fuels\Delete.cshtml" />
+    <Content Include="Areas\AdministratorCP\Views\Fuels\Details.cshtml" />
+    <Content Include="Areas\AdministratorCP\Views\Fuels\Edit.cshtml" />
+    <Content Include="Areas\AdministratorCP\Views\Fuels\Index.cshtml" />
+    <Content Include="Areas\AdministratorCP\Views\GearBoxes\Create.cshtml" />
+    <Content Include="Areas\AdministratorCP\Views\GearBoxes\Delete.cshtml" />
+    <Content Include="Areas\AdministratorCP\Views\GearBoxes\Details.cshtml" />
+    <Content Include="Areas\AdministratorCP\Views\GearBoxes\Edit.cshtml" />
+    <Content Include="Areas\AdministratorCP\Views\GearBoxes\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -254,6 +283,152 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\assets\fonts\fa-solid-900.svg" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\assets\fonts\Pe-icon-7-stroke.svg" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\assets\images\avatars\1.jpg" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\assets\images\avatars\10.jpg" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\assets\images\avatars\11.jpg" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\assets\images\avatars\12.jpg" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\assets\images\avatars\2.jpg" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\assets\images\avatars\3.jpg" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\assets\images\avatars\4.jpg" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\assets\images\avatars\5.jpg" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\assets\images\avatars\8.jpg" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\assets\images\avatars\9.jpg" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\assets\images\logo-inverse.png" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\assets\images\logo.png" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\assets\scripts\main.js" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\charts-chartjs.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\components-accordions.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\components-calendar.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\components-carousel.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\components-maps.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\components-modals.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\components-notifications.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\components-pagination.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\components-progress-bar.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\components-scrollable-elements.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\components-tabs.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\components-tooltips-popovers.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\dashboard-boxes.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\elements-badges-labels.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\elements-buttons-standard.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\elements-cards.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\elements-dropdowns.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\elements-icons.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\elements-list-group.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\elements-navigation.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\elements-utilities.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\forms-controls.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\forms-layouts.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\forms-validation.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\index.html" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\main.css" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\tables-regular.html" />
+    <Content Include="TaiNguyen\1500x1000_px_Calm_Cold_lake_landscape_Lights_mountains_nature-991613.jpg" />
+    <Content Include="TaiNguyen\404.html" />
+    <Content Include="TaiNguyen\about.html" />
+    <Content Include="TaiNguyen\article-details.html" />
+    <Content Include="TaiNguyen\article.html" />
+    <Content Include="TaiNguyen\assets\css\bootstrap.min.css" />
+    <Content Include="TaiNguyen\assets\css\font-awesome.css" />
+    <Content Include="TaiNguyen\assets\css\plugins\animate.css" />
+    <Content Include="TaiNguyen\assets\css\plugins\gijgo.css" />
+    <Content Include="TaiNguyen\assets\css\plugins\magnific-popup.css" />
+    <Content Include="TaiNguyen\assets\css\plugins\owl.carousel.min.css" />
+    <Content Include="TaiNguyen\assets\css\plugins\slicknav.min.css" />
+    <Content Include="TaiNguyen\assets\css\plugins\vegas.min.css" />
+    <Content Include="TaiNguyen\assets\css\reset.css" />
+    <Content Include="TaiNguyen\assets\css\responsive.css" />
+    <Content Include="TaiNguyen\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="TaiNguyen\assets\img\404.png" />
+    <Content Include="TaiNguyen\assets\img\article\arti-thumb-1.jpg" />
+    <Content Include="TaiNguyen\assets\img\article\arti-thumb-2.jpg" />
+    <Content Include="TaiNguyen\assets\img\article\arti-thumb-3.jpg" />
+    <Content Include="TaiNguyen\assets\img\article\arti-thumb-4.jpg" />
+    <Content Include="TaiNguyen\assets\img\banner.jpg" />
+    <Content Include="TaiNguyen\assets\img\caret-cion.png" />
+    <Content Include="TaiNguyen\assets\img\car\car-1.jpg" />
+    <Content Include="TaiNguyen\assets\img\car\car-2.jpg" />
+    <Content Include="TaiNguyen\assets\img\car\car-3.jpg" />
+    <Content Include="TaiNguyen\assets\img\car\car-4.jpg" />
+    <Content Include="TaiNguyen\assets\img\car\car-5.jpg" />
+    <Content Include="TaiNguyen\assets\img\car\car-6.jpg" />
+    <Content Include="TaiNguyen\assets\img\client\client-pic-1.jpg" />
+    <Content Include="TaiNguyen\assets\img\client\client-pic-2.jpg" />
+    <Content Include="TaiNguyen\assets\img\client\client-pic-3.jpg" />
+    <Content Include="TaiNguyen\assets\img\driver\driver-1.jpg" />
+    <Content Include="TaiNguyen\assets\img\driver\driver-2.jpg" />
+    <Content Include="TaiNguyen\assets\img\driver\driver-3.jpg" />
+    <Content Include="TaiNguyen\assets\img\driver\driver-4.jpg" />
+    <Content Include="TaiNguyen\assets\img\driver\driver-5.jpg" />
+    <Content Include="TaiNguyen\assets\img\driver\driver-6.jpg" />
+    <Content Include="TaiNguyen\assets\img\funfact-bg.jpg" />
+    <Content Include="TaiNguyen\assets\img\home-2-about.png" />
+    <Content Include="TaiNguyen\assets\img\logo.png" />
+    <Content Include="TaiNguyen\assets\img\mobile-app.png" />
+    <Content Include="TaiNguyen\assets\img\page-title.jpg" />
+    <Content Include="TaiNguyen\assets\img\partner\partner-logo-1.png" />
+    <Content Include="TaiNguyen\assets\img\partner\partner-logo-2.png" />
+    <Content Include="TaiNguyen\assets\img\partner\partner-logo-3.png" />
+    <Content Include="TaiNguyen\assets\img\partner\partner-logo-4.png" />
+    <Content Include="TaiNguyen\assets\img\partner\partner-logo-5.png" />
+    <Content Include="TaiNguyen\assets\img\preloader.gif" />
+    <Content Include="TaiNguyen\assets\img\pricing-bg.jpg" />
+    <Content Include="TaiNguyen\assets\img\scroll-top.png" />
+    <Content Include="TaiNguyen\assets\img\services\service-icon-1.png" />
+    <Content Include="TaiNguyen\assets\img\services\service-icon-2.png" />
+    <Content Include="TaiNguyen\assets\img\services\service-icon-3.png" />
+    <Content Include="TaiNguyen\assets\img\services\service-icon-4.png" />
+    <Content Include="TaiNguyen\assets\img\services\service-icon-5.png" />
+    <Content Include="TaiNguyen\assets\img\services\service-icon-6.png" />
+    <Content Include="TaiNguyen\assets\img\slider-img\slider-img-1.jpg" />
+    <Content Include="TaiNguyen\assets\img\slider-img\slider-img-2.jpg" />
+    <Content Include="TaiNguyen\assets\img\slider-img\slider-img-3.jpg" />
+    <Content Include="TaiNguyen\assets\img\slider-img\slider-img-4.jpg" />
+    <Content Include="TaiNguyen\assets\img\team\team-mem-1.png" />
+    <Content Include="TaiNguyen\assets\img\team\team-mem-2.png" />
+    <Content Include="TaiNguyen\assets\img\team\team-mem-3.png" />
+    <Content Include="TaiNguyen\assets\img\team\team-mem-4.png" />
+    <Content Include="TaiNguyen\assets\img\team\team-mem-thumb-1.png" />
+    <Content Include="TaiNguyen\assets\img\team\team-mem-thumb-2.png" />
+    <Content Include="TaiNguyen\assets\img\team\team-mem-thumb-3.png" />
+    <Content Include="TaiNguyen\assets\img\team\team-mem-thumb-4.png" />
+    <Content Include="TaiNguyen\assets\img\we-do\service1-img.png" />
+    <Content Include="TaiNguyen\assets\img\we-do\service2-img.png" />
+    <Content Include="TaiNguyen\assets\img\we-do\service3-img.png" />
+    <Content Include="TaiNguyen\assets\js\bootstrap.min.js" />
+    <Content Include="TaiNguyen\assets\js\jquery-3.2.1.min.js" />
+    <Content Include="TaiNguyen\assets\js\jquery-migrate.min.js" />
+    <Content Include="TaiNguyen\assets\js\main.js" />
+    <Content Include="TaiNguyen\assets\js\plugins\counterup.min.js" />
+    <Content Include="TaiNguyen\assets\js\plugins\gijgo.js" />
+    <Content Include="TaiNguyen\assets\js\plugins\isotope.min.js" />
+    <Content Include="TaiNguyen\assets\js\plugins\magnific-popup.min.js" />
+    <Content Include="TaiNguyen\assets\js\plugins\mb.YTPlayer.js" />
+    <Content Include="TaiNguyen\assets\js\plugins\owl.carousel.min.js" />
+    <Content Include="TaiNguyen\assets\js\plugins\slicknav.min.js" />
+    <Content Include="TaiNguyen\assets\js\plugins\vegas.min.js" />
+    <Content Include="TaiNguyen\assets\js\plugins\waypoints.min.js" />
+    <Content Include="TaiNguyen\assets\js\popper.min.js" />
+    <Content Include="TaiNguyen\car-details.html" />
+    <Content Include="TaiNguyen\car-left-sidebar.html" />
+    <Content Include="TaiNguyen\car-right-sidebar.html" />
+    <Content Include="TaiNguyen\car-without-sidebar.html" />
+    <Content Include="TaiNguyen\contact.html" />
+    <Content Include="TaiNguyen\driver.html" />
+    <Content Include="TaiNguyen\faq.html" />
+    <Content Include="TaiNguyen\favicon.ico" />
+    <Content Include="TaiNguyen\gallery.html" />
+    <Content Include="TaiNguyen\help-desk.html" />
+    <Content Include="TaiNguyen\index.html" />
+    <Content Include="TaiNguyen\index2.html" />
+    <Content Include="TaiNguyen\index3.html" />
+    <Content Include="TaiNguyen\login.html" />
+    <Content Include="TaiNguyen\package.html" />
+    <Content Include="TaiNguyen\register.html" />
+    <Content Include="TaiNguyen\services.html" />
+    <Content Include="TaiNguyen\style.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -265,8 +440,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -297,29 +470,34 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\CarCategories\Create.cshtml" />
-    <Content Include="Views\CarCategories\Delete.cshtml" />
-    <Content Include="Views\CarCategories\Details.cshtml" />
-    <Content Include="Views\CarCategories\Edit.cshtml" />
-    <Content Include="Views\CarCategories\Index.cshtml" />
-    <Content Include="Views\Fuels\Create.cshtml" />
-    <Content Include="Views\Fuels\Delete.cshtml" />
-    <Content Include="Views\Fuels\Details.cshtml" />
-    <Content Include="Views\Fuels\Edit.cshtml" />
-    <Content Include="Views\Fuels\Index.cshtml" />
-    <Content Include="Views\GearBoxes\Create.cshtml" />
-    <Content Include="Views\GearBoxes\Delete.cshtml" />
-    <Content Include="Views\GearBoxes\Details.cshtml" />
-    <Content Include="Views\GearBoxes\Edit.cshtml" />
-    <Content Include="Views\GearBoxes\Index.cshtml" />
-    <Content Include="Views\CarProducts\Create.cshtml" />
-    <Content Include="Views\CarProducts\Delete.cshtml" />
-    <Content Include="Views\CarProducts\Details.cshtml" />
-    <Content Include="Views\CarProducts\Edit.cshtml" />
-    <Content Include="Views\CarProducts\Index.cshtml" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\assets\fonts\fa-solid-900.eot" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\assets\fonts\fa-solid-900.ttf" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\assets\fonts\fa-solid-900.woff" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\assets\fonts\fa-solid-900.woff2" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\assets\fonts\Pe-icon-7-stroke.eot" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\assets\fonts\Pe-icon-7-stroke.ttf" />
+    <Content Include="TaiNguyen2\architectui-html-free\architectui-html-free\assets\fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="TaiNguyen2\architectui-html-free\Changelog.md" />
+    <Content Include="TaiNguyen2\architectui-html-free\README.md" />
+    <Content Include="TaiNguyen2\__MACOSX\architectui-html-free\._Changelog.md" />
+    <Content Include="TaiNguyen2\__MACOSX\architectui-html-free\._README.md" />
+    <Content Include="TaiNguyen\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="TaiNguyen\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="TaiNguyen\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="TaiNguyen\assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Shared\_LayoutChiTietSP.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\Shared\_LayoutPage.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Home\_PartialNumberPage.cshtml" />
+    <Content Include="Views\Home\CourseCategories.cshtml" />
+    <Content Include="Views\Home\TheLoaiSanPham.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\AdministratorCP\Models\" />
+    <Folder Include="Areas\AdministratorCP\Views\Shared\" />
     <Folder Include="ImageUpload\" />
     <Folder Include="ResourceTemplate\" />
   </ItemGroup>
@@ -335,6 +513,9 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>TaiNguyen\favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />

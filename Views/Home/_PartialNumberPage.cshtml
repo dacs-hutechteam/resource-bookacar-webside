@@ -1,0 +1,22 @@
+﻿@using PagedList;
+<div class="text-center">
+    @*@if (((IPagedList)Model).PageNumber == 1)
+    {
+        @Html.ActionLink("Trang trước", "Index", new { Page_No = ((IPagedList)Model).PageNumber }, new { @class = "btn btn-default" })
+    }
+    else
+    {
+        @Html.ActionLink("Trang trước", "Index", new { Page_No = ((IPagedList)Model).PageNumber - 1 }, new { @class = "btn btn-default" })
+    }*@
+
+    Trang @(((IPagedList)Model).PageCount < ((IPagedList)Model).PageNumber ? 0 : ((IPagedList)Model).PageNumber) trong tổng số @(((IPagedList)Model).PageCount) (trang)
+
+    @if (((IPagedList)Model).PageCount < ((IPagedList)Model).PageNumber)
+    {
+        @Html.ActionLink("Trang sau", "Index", new { Page_No = ((IPagedList)Model).PageNumber }, new { @class = "btn btn-default" })
+    }
+    else
+    {
+        @Html.ActionLink("Trang sau", "Index", new { Page_No = ((IPagedList)Model).PageNumber + 1}, new { @class = "btn btn-default" })
+    }
+</div>
