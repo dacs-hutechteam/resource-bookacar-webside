@@ -52,7 +52,7 @@ namespace BookCarProject.Areas.AdministratorCP.Controllers
             {
                 db.UserCustomers.Add(userCustomer);
                 db.SaveChanges();
-                return RedirectToAction("Create","BookCars");
+                return RedirectToAction("Create");
             }
 
             return View(userCustomer);

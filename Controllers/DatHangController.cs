@@ -21,7 +21,7 @@ namespace BookCarProject.Controllers
         }
         [HttpGet]
         public ActionResult DatHangXe()
-        {
+        { 
             ViewBag.BookCarsId = new SelectList(db.BookCars, "BookCarsId", "BookCarsId");
             ViewBag.CarProductsId = new SelectList(db.CarProducts, "CarProductsId", "ModelCar");
             ViewBag.UserCustomersId = new SelectList(db.UserCustomers, "UserCustomersId", "FullNameUser");

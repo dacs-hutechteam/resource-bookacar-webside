@@ -4,26 +4,57 @@
     ViewBag.Title = "DatHangXe";
     Layout = "~/Views/Shared/_LayoutChiTietSP.cshtml";
 }
-<table align="center">
-    @using (Html.BeginForm())
-    {
-        <tr>
+    <table align="center">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-            <td>Họ Tên Khách Hàng</td>
-            @Html.TextBoxFor(Model => Model.FullNameUser)
-            @Html.ValidationMessageFor(model => model.FullNameUser, "", new { @class = "text-danger" })
-            <td>Địa Chỉ</td>
-            @Html.TextBoxFor(Model => Model.AddressUser)
-            <td>Gmail</td>
-            @Html.TextBoxFor(Model => Model.EmailUser)
-            @Html.ValidationMessageFor(model => model.EmailUser, "", new { @class = "text-danger" })
-            <td>SDT</td>
-            @Html.TextBoxFor(Model => Model.NumberPhoneUser)
-            @Html.ValidationMessageFor(model => model.NumberPhoneUser, "", new { @class = "text-danger" })
-            <td></td>
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.Label("Tên Đầy Đủ:", htmlAttributes: new { @class = "control-label col-md-6" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.FullNameUser, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FullNameUser, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        </tr>
+                <div class="form-group">
+                    @Html.Label("CMND:", htmlAttributes: new { @class = "control-label col-md-6" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.CardIDUser, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CardIDUser, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Địa Chỉ:", htmlAttributes: new { @class = "control-label col-md-6" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.AddressUser, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AddressUser, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Số Điện Thoại:", htmlAttributes: new { @class = "control-label col-md-6" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.NumberPhoneUser, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NumberPhoneUser, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Email:", htmlAttributes: new { @class = "control-label col-md-6" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.EmailUser, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EmailUser, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+                <tr style="height:40px">
+                    <td>Ngày Đặt</td>
+                    <td style="font-weight:bold">@DateTime.Now.ToShortDateString()</td>
+                </tr>
 
     }
-
 </table>
