@@ -29,5 +29,7 @@ namespace BookCarProject.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<BookCarProject.Models.UserCustomer> UserCustomers { get; set; }
     }
 }

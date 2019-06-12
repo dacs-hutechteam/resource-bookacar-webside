@@ -1,0 +1,67 @@
+﻿@model BookCarProject.Models.BookCarDetail
+
+@{
+    ViewBag.Title = "Details";
+   Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BookCarDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookCar.BookCarsId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookCar.BookCarsId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarProduct.ModelCar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarProduct.ModelCar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalRental)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalRental)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfReceive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfReceive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateReturn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateReturn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

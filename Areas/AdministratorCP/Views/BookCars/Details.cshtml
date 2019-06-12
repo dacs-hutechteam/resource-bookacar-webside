@@ -1,0 +1,35 @@
+﻿@model BookCarProject.Models.BookCar
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BookCar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserCustomer.FullNameUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserCustomer.FullNameUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateBookCar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateBookCar)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookCarsId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

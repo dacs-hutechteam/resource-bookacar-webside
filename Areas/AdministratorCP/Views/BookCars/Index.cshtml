@@ -1,0 +1,37 @@
+﻿@model IEnumerable<BookCarProject.Models.BookCar>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<p class="text-right text-uppercase">
+   @Html.ActionLink("Tạo mới", "Create", null, new { @class = "btn btn-warning" })
+</p>
+<table class="table table-dark">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserCustomer.FullNameUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateBookCar)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserCustomer.FullNameUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateBookCar)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BookCarsId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BookCarsId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BookCarsId })
+        </td>
+    </tr>
+}
+
+</table>

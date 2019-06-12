@@ -24,7 +24,7 @@
                 <div class="p-car-feature">
                     <a href="#">Màu: @item.CarColor</a>
                     <a href="#">Số Gế: @item.NumberOfSeats</a>
-                    <a href="/Home/Details/@item.CarProductsId">Chi Tiết</a>
+                    @Html.ActionLink("Chi Tiết", "Details", new { id = item.CarProductsId })
                 </div>
             </div>
         </div>

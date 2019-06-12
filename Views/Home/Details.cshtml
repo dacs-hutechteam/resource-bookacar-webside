@@ -35,7 +35,7 @@
                                             </tr>
                                             <tr>
                                                 <th>Nhiên Liệu</th>
-                                                <td>@Model.Fuel</td>
+                                                <td>@Html.DisplayFor(model => model.Fuel.NameFuel)</td>
                                             </tr>
                                             <tr>
                                                 <th>Số Chổ Ngồi</th>
@@ -43,7 +43,7 @@
                                             </tr>
                                             <tr>
                                                 <th>Hộp Số</th>
-                                                <td>@Model.GearBox</td>
+                                                <td>@Html.DisplayFor(model => model.GearBox.NameGearBox)</td>
                                             </tr>
                                         </table>
                                     </div>
@@ -66,6 +66,7 @@
                                 </div>
                             </div>
                         </div>
+                        <a href="/UserCustomers/Create" class="btn-outline-success">Đặt Xe Ngay Hôm Nay</a>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<BookCarProject.Models.UserCustomer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<p class="text-right text-uppercase">
+    @Html.ActionLink("Tạo mới", "Create", null, new { @class = "btn btn-warning" })
+</p>
+<table class="table table-dark">
+    <tr>
+        <th>
+            @Html.DisplayName("Tên Khách Hàng")
+        </th>
+        <th>
+            @Html.DisplayName("CMND")
+        </th>
+        <th>
+            @Html.DisplayName("Địa Chỉ")
+        </th>
+        <th>
+            @Html.DisplayName("SDT")
+        </th>
+        <th>
+            @Html.DisplayName("Gmail")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullNameUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CardIDUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddressUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberPhoneUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailUser)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UserCustomersId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.UserCustomersId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UserCustomersId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -16,21 +16,24 @@ namespace BookCarProject.Controllers
         private DbContextBookCar db = new DbContextBookCar();
 
         // GET: Home
-        public ActionResult Index(string SearchString, int? cateId, int? Page_No, int Size_Of_Page = 6)
+        public ActionResult Index(/*string SearchString, int? cateId, int? Page_No, int Size_Of_Page = 6*/)
         {
-            //int number_Of_Page = Page_No ?? 1;
-            //var products = db.Products.Include(p => p.category).OrderBy(p => p.id).ToPagedList(number_Of_Page, Size_Of_Page);
-            var products = db.CarProducts.Include(p => p.CarCategory).Where(p => p.ModelCar.Contains(SearchString) || SearchString == null).OrderBy(p => p.CarProductsId).ToPagedList(Page_No ?? 1, Size_Of_Page);
+            ////int number_Of_Page = Page_No ?? 1;
+            ////var products = db.Products.Include(p => p.category).OrderBy(p => p.id).ToPagedList(number_Of_Page, Size_Of_Page);
+            //var products = db.CarProducts.Include(p => p.CarCategory).Where(p => p.ModelCar.Contains(SearchString) || SearchString == null).OrderBy(p => p.CarProductsId).ToPagedList(Page_No ?? 1, Size_Of_Page);
             return View(db.CarProducts);
         }
         public ActionResult Details(int? id)
         {
+            ViewBag.CarCategoryId = new SelectList(db.CarCategories, "CarCategoryId", "NameCarCategory");
+            ViewBag.FuelsId = new SelectList(db.Fuels, "FuelsId", "NameFuel");
+            ViewBag.GearBoxsId = new SelectList(db.GearBoxs, "GearBoxsId", "NameGearBox");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             //Product product = db.Products.Find(id);
-            CarProduct product = db.CarProducts.Include(p => p.CarCategory).Where(p => p.CarCategoryId == id).FirstOrDefault();
+            CarProduct product = db.CarProducts.Include(p => p.CarCategory).Where(p => p.CarProductsId == id).FirstOrDefault();
             if (product == null)
             {
                 return HttpNotFound();
