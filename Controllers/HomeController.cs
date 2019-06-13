@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PagedList;
+using PagedList.Mvc;
 using BookCarProject.Models;
 
 namespace BookCarProject.Controllers
@@ -16,10 +17,9 @@ namespace BookCarProject.Controllers
         private DbContextBookCar db = new DbContextBookCar();
 
         // GET: Home
-        public ActionResult Index( int? Page_No, int Size_Of_Page = 6)
+        public ActionResult Index()
         {
-            int number_Of_Page = Page_No ?? 1;
-            var products = db.CarProducts.Include(p => p.CarCategory).OrderBy(p => p.CarProductsId).ToPagedList(number_Of_Page, Size_Of_Page);
+           
             return View(db.CarProducts);
         }
         public ActionResult Details(int? id)
