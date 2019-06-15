@@ -41,16 +41,16 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ImageFont, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ImageFont, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ImageFont, "", new { @class = "text-danger" })
+                <input type="file" class="btn btn-info" name="hinhanh" />
+                @Html.ValidationMessageFor(model => model.ImageFont,Model.ImageFont, new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.ImageBack, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ImageBack, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ImageBack, "", new { @class = "text-danger" })
+                <input type="file" class="btn btn-info" name="hinhanh1" />
+                @Html.ValidationMessageFor(model => model.ImageBack, Model.ImageBack, new { @class = "text-danger" })
             </div>
         </div>
 

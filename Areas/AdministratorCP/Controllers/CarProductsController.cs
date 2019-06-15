@@ -115,7 +115,9 @@ namespace BookCarProject.Areas.AdministratorCP.Controllers
         {
             if (ModelState.IsValid)
             {
+                //Lấy đối tượng file
                 var f = Request.Files["hinhanh"];
+                var f2 = Request.Files["hinhanh1"];
                 //Kiểm tra xem người dùng có chọn upload hay không
                 if (f != null && f.ContentLength > 0)
                 {
@@ -126,8 +128,17 @@ namespace BookCarProject.Areas.AdministratorCP.Controllers
                     //Gán url của hình ảnh vào giá trị của thumnail
                     carProduct.ImageFont = "/ImageUpload/" + f.FileName;
                 }
+                if (f2 != null && f2.ContentLength > 0)
+                {
+                    //Lấy đường dẫn
+                    var path = Server.MapPath("~/ImageUpload/" + f2.FileName);
+                    //Upload file lên server
+                    f2.SaveAs(path);
+                    //Gán url của hình ảnh vào giá trị của thumnail
+                    carProduct.ImageBack = "/ImageUpload/" + f2.FileName;
+                }
 
-                db.Entry(carProduct).State = System.Data.Entity.EntityState.Modified;
+                db.CarProducts.Add(carProduct);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
