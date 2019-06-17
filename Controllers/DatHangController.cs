@@ -20,12 +20,22 @@ namespace BookCarProject.Controllers
             return View();
         }
         [HttpGet]
-        public ActionResult DatHangXe()
-        { 
-            ViewBag.BookCarsId = new SelectList(db.BookCars, "BookCarsId", "BookCarsId");
-            ViewBag.CarProductsId = new SelectList(db.CarProducts, "CarProductsId", "ModelCar");
-            ViewBag.UserCustomersId = new SelectList(db.UserCustomers, "UserCustomersId", "FullNameUser");
-            return View();
+        public ActionResult DatHangXe(int? id)
+        {
+            ViewBag.CarCategoryId = new SelectList(db.CarCategories, "CarCategoryId", "NameCarCategory");
+            ViewBag.FuelsId = new SelectList(db.Fuels, "FuelsId", "NameFuel");
+            ViewBag.GearBoxsId = new SelectList(db.GearBoxs, "GearBoxsId", "NameGearBox");
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            //Product product = db.Products.Find(id);
+            CarProduct product = db.CarProducts.Include(p => p.CarCategory).Where(p => p.CarProductsId == id).FirstOrDefault();
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            return View(product);
         }
     }
 }

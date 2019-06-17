@@ -51,5 +51,22 @@ namespace BookCarProject.Controllers
             var products = from product in db.CarProducts where product.CarProductsId == id select product;
             return View(products);
         }
+        public ActionResult DatHangXeS(int? id)
+        {
+            ViewBag.CarCategoryId = new SelectList(db.CarCategories, "CarCategoryId", "NameCarCategory");
+            ViewBag.FuelsId = new SelectList(db.Fuels, "FuelsId", "NameFuel");
+            ViewBag.GearBoxsId = new SelectList(db.GearBoxs, "GearBoxsId", "NameGearBox");
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            //Product product = db.Products.Find(id);
+            CarProduct product = db.CarProducts.Include(p => p.CarCategory).Where(p => p.CarProductsId == id).FirstOrDefault();
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            return View(product);
+        }
     }
 }

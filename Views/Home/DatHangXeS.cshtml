@@ -1,0 +1,32 @@
+﻿@model BookCarProject.Models.CarProduct
+@{
+    ViewBag.Title = "DatHangXeS";
+    Layout = "~/Views/Shared/_LayoutChiTietSP.cshtml";
+}
+    <div class="container">
+        <div class="row">
+            <h2 style="text-align:center">Thông Tin Đặt Hàng</h2>
+            <table align="center" border="1">
+                <tr style="text-align:center;font-weight:bold">
+                    <td>Mã Sản Phẩm</td>
+                    <td>Tên Sản Phẩm</td>
+                    <td>Hình ảnh Chi Tiết</td>
+                    <td>Đơn Giá</td>
+                </tr>
+                <tr style="text-align:center;font-weight:bold">
+                    <td>@Model.CarProductsId</td>
+                    <td>@Model.ModelCar</td>
+                    <td><img src="@Model.ImageFont" width="300" height="350" alt="@Model.ImageFont"></td>
+                    <td>@Model.RentCost</td>
+
+                </tr>
+                <tr style="font-weight:bold;color:blue;text-align:right">
+                    <td colspan="6">
+                        @Html.ActionLink("Trở Về Trang Chủ", "Index", "Home")
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+    </div>

@@ -513,6 +513,7 @@
     <Content Include="Areas\AdministratorCP\Views\UserCustomers\Index.cshtml" />
     <Content Include="Views\DatHang\DatHangXe.cshtml" />
     <Content Include="Views\Home\_PartialNumberPage.cshtml" />
+    <Content Include="Views\Home\DatHangXeS.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
